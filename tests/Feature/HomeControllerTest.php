@@ -9,14 +9,13 @@ use Tests\TestCase;
 
 class HomeControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+    use RefreshDatabase;
     public function test_Auth_ser(): void
     {
         $this->actingAs(User::factory()->create());
         $response = $this->get(route("home"));
         $response->assertStatus(200);
         $response->assertViewIs("home");
+        
     }
 }
