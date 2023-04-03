@@ -63,7 +63,7 @@
                             </td>
                             <td class="text-primary">
                                 {{$user->updated_at}}
-                            </td>
+                            </td>                                
                         </tr>                                    
                     </tbody>
                 </table>
