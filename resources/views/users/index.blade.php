@@ -20,8 +20,8 @@
           <th scope="row"> {{$user -> id}} </th>
           <td> {{$user -> name}} </td>
           <td> {{$user -> email}} </td>
-          <td><button>Editar</button><button>Mostrar</button> </td>
-          
+          <td><a href={{ route('users.show',$user )}} type="button" class="btn btn-primary">Mostrar</a></td>
+
         </tr>
         @endforeach
     </tbody> 

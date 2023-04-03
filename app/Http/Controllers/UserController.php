@@ -28,15 +28,20 @@ class UserController extends Controller
     }
 
   
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(Request $request, User $user) 
+    // public function update(UpdateUserRequest $request, User $user)
     {
-        if (!Hash::check($request->get('current_password'), $user->password)){
-            return redirect()-> route('users.edit',$user)-> with('error',"La contraseña no coincide")  ;
-        }
-        $user->name = $request->get('name');
-        $user->password = Hash::make($request->get('password'));
-        $user->save();
-        return redirect()-> route('users.show',$user)->with('success', "El usuario fue actualizado.") ;
+
+        // if (!Hash::check($request->get('current_password'), $user->password)){
+        //     return redirect()-> route('users.edit',$user)-> with('error',"La contraseña no coincide")  ;
+        // }
+        // $user->name = $request->get('name');
+        // $user->password = Hash::make($request->get('password'));
+        // $user->save();
+        $user->update($request->all());
+        // dd($request->all());
+        return redirect()->back()->with('success', "El usuario ha sido editado.");
+        // return redirect()-> route('users.show',$user)->with('success', "El usuario fue actualizado.") ;
     }
 
     
